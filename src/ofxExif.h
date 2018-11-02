@@ -12,7 +12,7 @@
 #include "ofMain.h"
 #include "exif.h"
 
-inline EXIFInfo getEXIF(string _file){
+inline easyexif::EXIFInfo getEXIF(string _file){
     
     std::string str = ofToDataPath(_file);
     cout << "Opening: " << str << endl;
@@ -36,7 +36,7 @@ inline EXIFInfo getEXIF(string _file){
     fclose(fp);
     
     // Parse EXIF
-    EXIFInfo result;
+    easyexif::EXIFInfo result;
     int code = result.parseFrom(buf, fsize);
     delete[] buf;
     if (code) {
